@@ -1,0 +1,5 @@
+- hosts: localhost
+  become: yes
+
+  tasks:
+    - include: playbooks/install_packages.yml
