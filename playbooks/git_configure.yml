@@ -1,0 +1,8 @@
+    - name: Set git configuration
+      shell: "{{ item }}"
+      with_items:
+        - git config --global user.name VMashanov
+        - git config --global user.email <email>
+        - git config --global merge.tool vimdiff
+        - git config --global push.default simple
+        - git config --global core.editor '/usr/bin/subl -t -w'

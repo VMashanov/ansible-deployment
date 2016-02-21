@@ -1,5 +1,5 @@
 - hosts: localhost
-  become: yes
 
   tasks:
     - include: playbooks/install_packages.yml
+    - include: playbooks/git_configure.yml
