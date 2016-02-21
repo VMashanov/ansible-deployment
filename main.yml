@@ -3,3 +3,5 @@
   tasks:
     - include: playbooks/install_packages.yml
     - include: playbooks/git_configure.yml
+    - include: playbooks/ssh_keygen.yml
+    - include: playbooks/updating_bashrc.yml
