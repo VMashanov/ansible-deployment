@@ -5,6 +5,7 @@
         - 'ppa:webupd8team/sublime-text-3'
         - 'ppa:numix/ppa'
         - 'deb http://download.virtualbox.org/virtualbox/debian wily contrib'
+        - 'deb http://dl.google.com/linux/chrome/deb/ stable main'
       become: yes
 
     - name: Add virtualbox key
@@ -27,5 +28,6 @@
         - mc
         - unity-tweak-tool
         - virtualbox-5.0
+        - google-chrome-stable
       become: yes
 

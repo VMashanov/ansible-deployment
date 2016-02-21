@@ -5,4 +5,4 @@
     - include: playbooks/git_configure.yml
     - include: playbooks/ssh_keygen.yml
     - include: playbooks/updating_bashrc.yml
-    - include: playbooks/vagrant_install.yml
+    - include: playbooks/install_vagrant.yml
