@@ -4,6 +4,13 @@
       with_items:
         - 'ppa:webupd8team/sublime-text-3'
         - 'ppa:numix/ppa'
+        - 'deb http://download.virtualbox.org/virtualbox/debian wily contrib'
+      become: yes
+
+    - name: Add virtualbox key
+      apt_key:
+        url: https://www.virtualbox.org/download/oracle_vbox.asc
+        state: present
       become: yes
 
     - name: Install packages
@@ -19,5 +26,6 @@
         - git-flow
         - mc
         - unity-tweak-tool
+        - virtualbox-5.0
       become: yes
 

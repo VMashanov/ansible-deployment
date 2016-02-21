@@ -1,0 +1,29 @@
+    - name: Check if vagrant package is installed
+      command: "dpkg-query --showformat='${Version}' --show vagrant"
+      register: vagrant_check_install
+      failed_when: vagrant_check_install.rc > 1
+      changed_when: vagrant_check_install.rc == 1
+
+    - name: Display checked vagrant version
+      debug: msg={{ vagrant_check_install.stdout }}
+      debug: msg={{ vagrant_deb_package_url }}
+
+    - name: Download vagrant deb package
+      get_url:
+        url: '{{ vagrant_deb_package_url }}'
+        timeout: 3600
+        dest: '/tmp/vagrant.deb'
+      when: vagrant_version not in vagrant_check_install.stdout
+
+    - name: install vagrant
+      apt:
+        deb: '/tmp/vagrant.deb'
+        state: present
+      when: vagrant_version not in vagrant_check_install.stdout
+      become: yes
+
+    - name: Remove vagrant deb package
+      file:
+        path: '/tmp/vagrant.deb'
+        state: absent
+      when: vagrant_version not in vagrant_check_install.stdout
