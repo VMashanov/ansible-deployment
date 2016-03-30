@@ -1,0 +1,28 @@
+    - name: Cloning rbenv
+      git:
+        repo: https://github.com/rbenv/rbenv.git
+        dest: ~/.rbenv
+        accept_hostkey: true
+        clone: yes
+        force: yes
+
+    - name: Cloning ruby-build
+      git:
+        repo: https://github.com/rbenv/ruby-build.git
+        dest: ~/.rbenv/plugins/ruby-build
+        accept_hostkey: true
+        clone: yes
+        force: yes
+
+    - name: Set PATH for rbenv
+      lineinfile:
+        dest: '~/.bashrc'
+        line: '\nexport PATH="$HOME/.rbenv/bin:$PATH"\neval "$(rbenv init -)"'
+        state: present
+        create: yes
+
+    - name: Install ruby 2.3.0
+      shell: "rbenv install 2.3.0"
+
+    - name: Set global ruby
+      shell: "rbenv global 2.3.0"

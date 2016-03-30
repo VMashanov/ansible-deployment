@@ -5,18 +5,11 @@
         - 'ppa:webupd8team/sublime-text-3'
         - 'ppa:numix/ppa'
         - 'deb http://download.virtualbox.org/virtualbox/debian wily contrib'
-        - 'deb http://dl.google.com/linux/chrome/deb/ stable main'
       become: yes
 
     - name: Add virtualbox key
       apt_key:
         url: https://www.virtualbox.org/download/oracle_vbox.asc
-        state: present
-      become: yes
-
-    - name: Add google-chrome key
-      apt_key:
-        url: https://dl.google.com/linux/linux_signing_key.pub
         state: present
       become: yes
 
@@ -34,6 +27,8 @@
         - mc
         - unity-tweak-tool
         - virtualbox-5.0
-        - google-chrome-stable
+        - libssl-dev
+        - libreadline-dev
+        - zlib1g-dev
       become: yes
 
