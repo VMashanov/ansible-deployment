@@ -7,3 +7,4 @@
     - include: playbooks/updating_bashrc.yml
     - include: playbooks/install_vagrant.yml
     - include: playbooks/install_rbenv.yml
+    - include: playbooks/install_wps.yml

@@ -1,0 +1,34 @@
+    - name: Check if WPS office package is installed
+      command: "dpkg-query --showformat='${Version}' --show wps-office"
+      register: wps_office_check_install
+      failed_when: wps_office_check_install.rc > 1
+      changed_when: wps_office_check_install.rc == 1
+
+    - name: Remove old offices
+      apt:
+        name: '{{ item }}'
+        state: absent
+      become: yes
+      when: wps_office_check_install.rc == 1
+      with_items:
+        - '{{ offices_to_remove }}'
+
+    - name: Download WPS office package
+      get_url:
+        url: '{{ wps_office_url }}'
+        dest: '/tmp/wps_office.deb'
+      when: wps_office_check_install.rc == 1
+
+    - name: Install WPS office
+      apt:
+        deb: '/tmp/wps_office.deb'
+        state: present
+      become: yes
+      when: wps_office_check_install.rc == 1
+
+    - name: Remove WPS office package
+      file:
+        path: '/tmp/wps_office.deb'
+        state: absent
+      become: yes
+      when: wps_office_check_install.rc == 1
