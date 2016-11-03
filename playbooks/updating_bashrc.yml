@@ -1,13 +1,11 @@
-    - name: set branch name in PS1
+    - name: update .bashrc
       lineinfile:
         dest: '~/.bashrc'
-        line: 'PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\w\a\]\u@\h \w\$(__git_ps1 "[%s]")\n:$ "'
+        line: '{{ item }}'
         state: present
         create: yes
-
-    - name: set ssh-agent
-      lineinfile:
-        dest: '~/.bashrc'
-        line: '\neval "$(ssh-agent -s)" > /dev/null 2>&1\nssh-add ~/.ssh/id_rsa > /dev/null 2>&1'
-        state: present
-        create: yes
+      with_items:
+        - PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\w\a\]\u@\h \w\$(__git_ps1 "[%s]")\n:$ "
+        - eval "$(ssh-agent -s)" > /dev/null 2>&1
+        - ssh-add ~/.ssh/id_rsa > /dev/null 2>&1
+        

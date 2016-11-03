@@ -17,12 +17,9 @@
     - name: Set PATH for rbenv
       lineinfile:
         dest: '~/.bashrc'
-        line: '\nexport PATH="$HOME/.rbenv/bin:$PATH"\neval "$(rbenv init -)"'
+        line: '{{ item }}'
         state: present
         create: yes
-
-    - name: Install ruby 2.3.0
-      shell: "rbenv install 2.3.0"
-
-    - name: Set global ruby
-      shell: "rbenv global 2.3.0"
+      with_items:
+        - export PATH="$HOME/.rbenv/bin:$PATH"
+        - eval "$(rbenv init -)"

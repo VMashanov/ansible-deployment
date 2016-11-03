@@ -1,10 +1,10 @@
 ---
 # vagrant
-vagrant_version: 1.8.1
+vagrant_version: 1.8.6
 vagrant_deb_package_url: 'https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.deb'
 
 # For install wps
-wps_office_url: http://kdl.cc.ksosoft.com/wps-community/download/a20/wps-office_10.1.0.5503~a20p2_amd64.deb
+wps_office_url: http://kdl.cc.ksosoft.com/wps-community/download/a21/wps-office_10.1.0.5672~a21_amd64.deb
 
 offices_to_remove:
   - 'libreoffice*'
