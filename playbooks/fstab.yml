@@ -1,0 +1,7 @@
+    - name: Add HDD to automount group
+      lineinfile:
+        dest: '/etc/fstab'
+        line: 'UUID="CA2AC9DD2AC9C6A3" /mnt/Archive ntfs auto,rw,nls=utf8,gid=plugdev,umask=0002 0 0'
+        state: present
+        create: yes
+      become: yes

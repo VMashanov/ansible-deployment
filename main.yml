@@ -8,3 +8,4 @@
     - include: playbooks/install_vagrant.yml
     - include: playbooks/install_rbenv.yml
     - include: playbooks/install_wps.yml
+    - include: playbooks/fstab.yml
