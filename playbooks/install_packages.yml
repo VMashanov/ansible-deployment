@@ -4,6 +4,7 @@
       with_items:
         - 'ppa:nathan-renniewaldock/flux'
         - 'ppa:numix/ppa'
+        - 'ppa:neovim-ppa/unstable'
         - 'deb http://download.virtualbox.org/virtualbox/debian xenial contrib'
       become: yes
 
@@ -19,10 +20,14 @@
     - name: Install packages
       apt: name={{ item }} state=latest update_cache=yes
       with_items:
+        - software-properties-common
         - build-essential
         - wget
         - curl
-        - vim
+        - neovim
+        - vlc
+        - smplayer
+        - audacious
         - fluxgui
         - numix-icon-theme-circle
         - git
