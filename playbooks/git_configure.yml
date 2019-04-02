@@ -2,7 +2,7 @@
       shell: "{{ item }}"
       with_items:
         - git config --global user.name VMashanov
-        - git config --global user.email <email>
+        - git config --global user.email vvmashanov@yandex.ru
         - git config --global merge.tool vimdiff
         - git config --global push.default simple
-        - git config --global core.editor nvim
+        - git config --global core.editor gedit

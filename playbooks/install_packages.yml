@@ -1,22 +1,3 @@
-    - name: Add ppa sources
-      apt_repository:
-        repo: "{{ item }}"
-      with_items:
-        - 'ppa:nathan-renniewaldock/flux'
-        - 'ppa:numix/ppa'
-        - 'ppa:neovim-ppa/unstable'
-        - 'deb http://download.virtualbox.org/virtualbox/debian xenial contrib'
-      become: yes
-
-    - name: Add virtualbox key
-      apt_key:
-        url: "{{ item }}"
-        state: present
-      with_items:
-        - https://www.virtualbox.org/download/oracle_vbox_2016.asc
-        - https://www.virtualbox.org/download/oracle_vbox.asc
-      become: yes
-
     - name: Install packages
       apt: name={{ item }} state=latest update_cache=yes
       with_items:
@@ -24,17 +5,14 @@
         - build-essential
         - wget
         - curl
-        - neovim
         - vlc
         - smplayer
-        - audacious
-        - fluxgui
-        - numix-icon-theme-circle
         - git
         - git-flow
-        - mc
-        - unity-tweak-tool
-        - virtualbox-5.1
+        - gnome-shell-pomodoro
+        - openvpn
+        - network-manager-openvpn-gnome
+        - gnome-tweak-tool
         - libssl-dev
         - libreadline-dev
         - zlib1g-dev
