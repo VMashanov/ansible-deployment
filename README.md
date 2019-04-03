@@ -1,5 +1,6 @@
 # ansible-deployment
 Scripts to deploy workspace after installation OS
 
-#####For begining deploing:
-`make deploy`
+## Execution:
+
+Simply execute `make deploy` in your favorite terminal!
