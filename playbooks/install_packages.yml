@@ -12,6 +12,11 @@
         - gnome-shell-pomodoro
         - openvpn
         - network-manager-openvpn-gnome
+        - gnupg2
+        - zsh
+        - terminator
+        - net-tools
+        - fonts-firacode
         - gnome-tweak-tool
         - libssl-dev
         - libreadline-dev
