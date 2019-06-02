@@ -1,0 +1,38 @@
+    - name: Download vs code deb package
+      get_url:
+        url: https://go.microsoft.com/fwlink/?LinkID=760868
+        timeout: 3600
+        dest: '/tmp/code.deb'
+
+    - name: install vs code
+      apt:
+        deb: '/tmp/code.deb'
+        state: present
+      become: yes
+
+    - name: Remove vs code deb package
+      file:
+        path: '/tmp/code.deb'
+        state: absent
+    
+    - name: Install extension
+      command: 'code --install-extension {{ item }}'
+      with_items:
+        - CoenraadS.bracket-pair-colorizer
+        - cssho.vscode-svgviewer
+        - dbaeumer.vscode-eslint
+        - eamodio.gitlens
+        - HookyQR.beautify
+        - humao.rest-client
+        - mikestead.dotenv
+        - msjsdiag.debugger-for-chrome
+        - oderwat.indent-rainbow
+        - PeterJausovec.vscode-docker
+        - rebornix.ruby
+        - SirTori.indenticator
+        - techer.open-in-browser
+        - vscode-icons-team.vscode-icons
+        - wayou.vscode-todo-highlight
+        - wix.vscode-import-cost
+        - xabikos.JavaScriptSnippets
+
