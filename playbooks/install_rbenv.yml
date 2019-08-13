@@ -13,6 +13,14 @@
         accept_hostkey: true
         clone: yes
         force: yes
+        
+    - name: Cloning rbenv-gemset
+      git:
+        repo: https://github.com/jf/rbenv-gemset
+        dest: ~/.rbenv/plugins/rbenv-gemset
+        accept_hostkey: true
+        clone: yes
+        force: yes
 
     - name: Set PATH for rbenv
       lineinfile:
